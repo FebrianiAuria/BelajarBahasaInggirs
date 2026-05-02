@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LinguaFun - Belajar Bahasa Inggris</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="bg-decoration bg-1"></div>
+    <div class="bg-decoration bg-2"></div>
+    <div class="bg-decoration bg-3"></div>
+
+    <div id="app">
+      <!-- ================= HALAMAN UTAMA ================= -->
+      <main id="home-screen" class="screen active">
+        <header class="home-hero">
+          <nav class="home-top">
+            <div class="brand-pill">
+              <span>🌈</span>
+              <strong>LinguaFun</strong>
+            </div>
+
+            <div class="user-stats">
+              <div class="stat-box stat-heart">
+                <span>❤️</span>
+                <span id="ui-hearts">5</span>
+              </div>
+              <div class="stat-box stat-xp">
+                <span>⭐</span>
+                <span id="ui-xp">0</span> XP
+              </div>
+            </div>
+          </nav>
+
+          <section class="hero-content">
+            <div class="hero-text">
+              <span class="level-badge">BEGINNER ENGLISH APP</span>
+              <h1>Belajar Bahasa Inggris Jadi Seru!</h1>
+              <p>
+                Latihan kosakata, listening, grammar, speaking, cerita
+                interaktif, dan roleplay percakapan dalam satu aplikasi.
+              </p>
+
+              <div class="hero-actions">
+                <button class="hero-btn primary-hero" onclick="openVocab()">
+                  Mulai Belajar 🚀
+                </button>
+                <button class="hero-btn secondary-hero" onclick="openStory()">
+                  Baca Cerita 📖
+                </button>
+              </div>
+            </div>
+
+            <div class="hero-mascot">
+              <div class="mascot-card">
+                <div class="mascot-face">🦉</div>
+                <h3>Daily Mission</h3>
+                <p>Selesaikan latihan hari ini untuk menaikkan XP kamu.</p>
+                <div class="mission-progress">
+                  <div class="mission-fill"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </header>
+
+        <section class="quick-progress">
+          <div class="progress-card">
+            <span>🔥</span>
+            <div>
+              <h3>Streak</h3>
+              <p>Belajar rutin setiap hari</p>
+            </div>
+            <strong>1 Hari</strong>
+          </div>
+
+          <div class="progress-card">
+            <span>🏆</span>
+            <div>
+              <h3>Target</h3>
+              <p>Pemula menuju lancar</p>
+            </div>
+            <strong>A1</strong>
+          </div>
+        </section>
+
+        <section class="section-heading">
+          <h2>Pilih Mode Belajar</h2>
+          <p>Mulai dari kosakata dasar sampai percakapan nyata.</p>
+        </section>
+
+        <section class="menu-container">
+          <button class="menu-btn story-btn" onclick="openStory()">
+            <span class="btn-icon">📖</span>
+            <div class="btn-text">
+              <h3>Interactive Story</h3>
+              <p>Baca cerita dan klik kata untuk melihat artinya.</p>
+            </div>
+            <span class="menu-arrow">›</span>
+          </button>
+
+          <button class="menu-btn dictionary-btn" onclick="openDictionary()">
+            <span class="btn-icon">📚</span>
+            <div class="btn-text">
+              <h3>Kamus Inggris</h3>
+              <p>
+                Cari kata bahasa Inggris dan lihat artinya dalam bahasa
+                Indonesia.
+              </p>
+            </div>
+            <span class="menu-arrow">›</span>
+          </button>
+
+          <button class="menu-btn translate-btn" onclick="openTranslateStory()">
+            <span class="btn-icon">🗣️</span>
+            <div class="btn-text">
+              <h3>Translate Speaking</h3>
+              <p>Dengarkan kalimat lalu terjemahkan dengan suara.</p>
+            </div>
+            <span class="menu-arrow">›</span>
+          </button>
+
+          <button class="menu-btn vocab-btn" onclick="openVocab()">
+            <span class="btn-icon">🔤</span>
+            <div class="btn-text">
+              <h3>Kosakata Baru</h3>
+              <p>Hafalan flashcard interaktif dengan audio.</p>
+            </div>
+            <span class="menu-arrow">›</span>
+          </button>
+
+          <button class="menu-btn listening-btn" onclick="openListening()">
+            <span class="btn-icon">🎧</span>
+            <div class="btn-text">
+              <h3>Listening Quiz</h3>
+              <p>Dengarkan kalimat lalu pilih arti yang benar.</p>
+            </div>
+            <span class="menu-arrow">›</span>
+          </button>
+
+          <button class="menu-btn grammar-btn" onclick="openGrammar()">
+            <span class="btn-icon">🧩</span>
+            <div class="btn-text">
+              <h3>Grammar & Tenses</h3>
+              <p>Susun kata menjadi kalimat bahasa Inggris.</p>
+            </div>
+            <span class="menu-arrow">›</span>
+          </button>
+
+          <button class="menu-btn speaking-btn" onclick="openSpeaking()">
+            <span class="btn-icon">🎙️</span>
+            <div class="btn-text">
+              <h3>Speaking Quiz</h3>
+              <p>Latih pengucapan menggunakan mikrofon.</p>
+            </div>
+            <span class="menu-arrow">›</span>
+          </button>
+
+          <button class="menu-btn conv-btn" onclick="openConversation()">
+            <span class="btn-icon">💬</span>
+            <div class="btn-text">
+              <h3>Roleplay Percakapan</h3>
+              <p>Latihan dialog seperti belanja, sekolah, dan bertemu teman.</p>
+            </div>
+            <span class="menu-arrow">›</span>
+          </button>
+
+          <button class="menu-btn spelling-btn" onclick="openSpelling()">
+            <span class="btn-icon">⌨️</span>
+            <div class="btn-text">
+              <h3>Latihan Ejaan</h3>
+              <p>
+                Bot akan mendikte, dan kamu ketik bahasa Inggrisnya di chat.
+              </p>
+            </div>
+            <span class="menu-arrow">›</span>
+          </button>
+        </section>
+      </main>
+
+      <!-- ================= HALAMAN PERCAKAPAN ================= -->
+      <main id="conversation-screen" class="screen">
+        <header class="top-nav">
+          <button class="icon-btn" onclick="goHome()">⬅️ Keluar</button>
+          <div class="progress-bar-container">
+            <div
+              id="conv-progress"
+              class="progress-bar"
+              style="width: 0%"
+            ></div>
+          </div>
+          <div class="mini-stat">❤️ <span id="cv-hearts">5</span></div>
+        </header>
+
+        <section class="conversation-board" id="conv-board">
+          <div class="mode-title">
+            <span>💬</span>
+            <div>
+              <h2 id="conv-title">Roleplay Percakapan</h2>
+              <p>Ikuti dialog dan ucapkan jawabanmu.</p>
+            </div>
+          </div>
+
+          <div id="conv-chat-container" class="chat-container"></div>
+        </section>
+
+        <footer class="bottom-panel">
+          <p id="conv-instruction" class="instruction-text">
+            Tunggu lawan bicaramu...
+          </p>
+          <div class="mic-row">
+            <button
+              id="btn-conv-mic"
+              class="big-mic-btn"
+              onclick="startConvSpeaking()"
+              disabled
+            >
+              🎤
+            </button>
+            <p id="conv-status">(Mic offline)</p>
+          </div>
+
+          <button
+            class="action-btn danger-btn"
+            onclick="skipConversationTurn()"
+          >
+            Lewatkan
+          </button>
+        </footer>
+      </main>
+
+      <!-- ================= HALAMAN LATIHAN EJAAN ================= -->
+      <main id="spelling-screen" class="screen">
+        <header class="top-nav">
+          <button class="icon-btn" onclick="goHome()">⬅️ Keluar</button>
+          <div class="progress-bar-container">
+            <div id="spl-progress" class="progress-bar" style="width: 0%"></div>
+          </div>
+          <div class="mini-stat">❤️ <span id="spl-hearts">5</span></div>
+        </header>
+
+        <section class="conversation-board" id="spelling-board">
+          <div class="mode-title">
+            <span>⌨️</span>
+            <div>
+              <h2 id="spl-title">Latihan Ejaan</h2>
+              <p>
+                Dengarkan bot dan baca terjemahannya, lalu ketik ejaan yang
+                benar.
+              </p>
+            </div>
+          </div>
+
+          <div id="spl-chat-container" class="chat-container"></div>
+        </section>
+
+        <footer class="bottom-panel pb-safe">
+          <div class="spelling-input-container">
+            <input
+              type="text"
+              id="spl-input"
+              placeholder="Ketik perkataan bot (Inggris)..."
+              autocomplete="off"
+            />
+            <button
+              class="btn primary-btn btn-sm"
+              id="spl-send-btn"
+              onclick="checkSpelling()"
+            >
+              Kirim
+            </button>
+          </div>
+          <p
+            id="spl-instruction"
+            class="instruction-text"
+            style="font-size: 0.9rem; margin-top: 5px"
+          >
+            Tunggu lawan bicaramu...
+          </p>
+        </footer>
+      </main>
+
+      <!-- ================= HALAMAN TRANSLATE SPEAKING ================= -->
+      <main id="translate-screen" class="screen">
+        <header class="top-nav">
+          <button class="icon-btn" onclick="goHome()">⬅️ Keluar</button>
+          <div class="progress-bar-container">
+            <div
+              id="translate-progress"
+              class="progress-bar"
+              style="width: 0%"
+            ></div>
+          </div>
+          <div class="mini-stat">❤️ <span id="tr-hearts">5</span></div>
+        </header>
+
+        <section class="translate-board">
+          <div class="mode-title center-title">
+            <span>🗣️</span>
+            <div>
+              <h2>Translate Speaking</h2>
+              <p>
+                Dengarkan kalimat Inggris, lalu terjemahkan ke bahasa Indonesia.
+              </p>
+            </div>
+          </div>
+
+          <div class="translate-card">
+            <span class="card-label">English Sentence</span>
+            <p id="tr-english-sentence"></p>
+            <p id="tr-clickable-words"></p>
+            <button class="small-audio-btn" onclick="playTranslateSentence()">
+              🔊 Dengarkan
+            </button>
+          </div>
+
+          <div class="translate-answer-card">
+            <span class="card-label">Jawaban Suara Kamu</span>
+            <p id="tr-user-answer">Belum ada jawaban.</p>
+            <button
+              id="btn-translate-mic"
+              class="mic-btn"
+              onclick="startTranslateSpeaking()"
+            >
+              🎙️
+            </button>
+            <p id="tr-status">Tekan mic lalu terjemahkan kalimatnya.</p>
+          </div>
+
+          <div id="tr-result" class="translate-result hidden">
+            <h3 id="tr-score"></h3>
+            <p id="tr-feedback"></p>
+            <p id="tr-xp-result"></p>
+          </div>
+        </section>
+
+        <button class="action-btn danger-btn" onclick="showTranslateAnswer()">
+          🔐 Buka Kunci Jawaban (-300 XP)
+        </button>
+
+        <div id="tr-answer-box" class="answer-box hidden">
+          <strong>Kunci Jawaban:</strong>
+          <p id="tr-answer-text"></p>
+        </div>
+
+        <footer class="bottom-panel">
+          <button
+            class="action-btn success-btn"
+            onclick="nextTranslateSentence()"
+          >
+            Lanjut Kalimat ➜
+          </button>
+        </footer>
+      </main>
+
+      <!-- ================= HALAMAN CERITA ================= -->
+      <main id="story-screen" class="screen">
+        <header class="top-nav">
+          <button class="icon-btn" onclick="goHome()">⬅️ Kembali</button>
+          <div class="progress-bar-container">
+            <div class="progress-bar story-progress"></div>
+          </div>
+          <button class="icon-btn audio-nav" onclick="readStoryAloud()">
+            🔊 Dengar
+          </button>
+        </header>
+
+        <section class="story-board">
+          <div class="mode-title center-title">
+            <span>📖</span>
+            <div>
+              <h2 id="story-title">Judul Cerita</h2>
+              <p>Klik kata bergaris bawah untuk melihat artinya.</p>
+            </div>
+          </div>
+
+          <div class="instruction">
+            💡 Tips: Baca pelan-pelan, klik kata sulit, lalu dengarkan audio.
+          </div>
+
+          <div id="story-content" class="story-content"></div>
+        </section>
+
+        <footer class="bottom-panel">
+          <div
+            style="display: flex; gap: 10px; align-items: center; width: 100%"
+          >
+            <button class="action-btn primary-btn" onclick="translateStory()">
+              Terjemahkan (-50 XP)
+            </button>
+            <button
+              class="action-btn success-btn"
+              onclick="finishStory()"
+              style="margin-left: auto"
+            >
+              Selesai Membaca 🎉
+            </button>
+          </div>
+          <div id="story-translation" class="story-translation hidden"></div>
+        </footer>
+      </main>
+
+      <!-- ================= HALAMAN FLASHCARD ================= -->
+      <main id="flashcard-screen" class="screen">
+        <header class="top-nav">
+          <button class="icon-btn" onclick="goHome()">⬅️ Keluar</button>
+          <div class="progress-bar-container">
+            <div
+              id="vocab-progress"
+              class="progress-bar"
+              style="width: 0%"
+            ></div>
+          </div>
+          <div class="mini-stat">❤️ <span id="fc-hearts">5</span></div>
+        </header>
+
+        <section class="flashcard-wrapper">
+          <div class="mode-title center-title">
+            <span>🔤</span>
+            <div>
+              <h2>Kosakata Baru</h2>
+              <p>Klik kartu untuk membuka arti katanya.</p>
+            </div>
+          </div>
+
+          <div id="vocab-pronunciation-box"></div>
+
+          <div class="flashcard-container" onclick="flipCard()">
+            <div id="flashcard" class="flashcard">
+              <div class="flashcard-front">
+                <span class="card-label">English Word</span>
+                <h2 id="fc-en">Apple</h2>
+                <p class="fc-hint">Klik untuk melihat arti 🔄</p>
+              </div>
+              <div class="flashcard-back">
+                <span class="card-label">Arti Indonesia</span>
+                <h2 id="fc-id">Apel</h2>
+                <p class="fc-hint light">Ucapkan dan ingat artinya.</p>
+              </div>
+              <button class="action-btn danger-btn" onclick="goHome()">
+                Selesai Latihan
+              </button>
+            </div>
+
+            <div id="vocab-breakdown-box"></div>
+          </div>
+        </section>
+
+        <footer class="bottom-panel fc-footer">
+          <button class="action-btn danger-btn" onclick="nextCard(false)">
+            Belum Ingat ❌
+          </button>
+          <button class="action-btn success-btn" onclick="nextCard(true)">
+            Ingat ✅
+          </button>
+        </footer>
+      </main>
+
+      <!-- ================= HALAMAN LISTENING ================= -->
+      <main id="listening-screen" class="screen">
+        <header class="top-nav">
+          <button class="icon-btn" onclick="goHome()">⬅️ Keluar</button>
+          <div class="progress-bar-container">
+            <div
+              id="listening-progress"
+              class="progress-bar"
+              style="width: 0%"
+            ></div>
+          </div>
+          <div class="mini-stat">❤️ <span id="ls-hearts">5</span></div>
+        </header>
+
+        <section class="listening-board">
+          <div class="mode-title center-title">
+            <span>🎧</span>
+            <div>
+              <h2 class="quiz-title">Apa yang kamu dengar?</h2>
+              <p>Dengarkan audio lalu pilih arti yang paling tepat.</p>
+            </div>
+          </div>
+
+          <div class="audio-container">
+            <button class="big-audio-btn" onclick="playListeningAudio()">
+              <span>🔊</span>
+              <strong>Putar Audio</strong>
+            </button>
+          </div>
+
+          <div id="listening-options" class="options-grid"></div>
+        </section>
+      </main>
+
+      <!-- ================= HALAMAN GRAMMAR ================= -->
+      <main id="grammar-screen" class="screen">
+        <header class="top-nav">
+          <button class="icon-btn" onclick="goHome()">⬅️ Keluar</button>
+          <div class="progress-bar-container">
+            <div
+              id="grammar-progress"
+              class="progress-bar"
+              style="width: 0%"
+            ></div>
+          </div>
+          <div class="mini-stat">❤️ <span id="gr-hearts">5</span></div>
+        </header>
+
+        <section class="grammar-board">
+          <div class="mode-title center-title">
+            <span>🧩</span>
+            <div>
+              <h2 class="quiz-title">Susun Kalimat</h2>
+              <p>Terjemahkan kalimat Indonesia menjadi bahasa Inggris.</p>
+            </div>
+          </div>
+
+          <div class="chat-bubble">
+            <img
+              src="https://api.dicebear.com/7.x/bottts/svg?seed=Lingua"
+              alt="Bot"
+              class="bot-avatar"
+            />
+            <div class="question-box">
+              <p id="gr-question-id">Dia sedang membaca buku</p>
+              <div class="hint-actions">
+                <button
+                  id="gr-hint-btn"
+                  class="hint-btn"
+                  onclick="showGrammarHint()"
+                >
+                  💡 Bantuan (50 XP)
+                </button>
+                <button
+                  id="gr-answer-btn"
+                  class="hint-btn answer-btn"
+                  onclick="showGrammarAnswer()"
+                >
+                  🔑 Jawaban (100 XP)
+                </button>
+              </div>
+              <div id="gr-hint-text" class="hint-text hidden"></div>
+            </div>
+          </div>
+
+          <div class="drop-label">Jawaban kamu:</div>
+          <div id="gr-selected-zone" class="drop-zone"></div>
+
+          <hr class="divider" />
+
+          <div class="drop-label">Pilih kata:</div>
+          <div id="gr-available-zone" class="word-bank"></div>
+        </section>
+
+        <footer class="bottom-panel">
+          <button
+            id="gr-check-btn"
+            class="action-btn success-btn"
+            onclick="checkGrammarAnswer()"
+          >
+            Periksa Jawaban 🔍
+          </button>
+        </footer>
+      </main>
+
+      <!-- ================= HALAMAN SPEAKING ================= -->
+      <main id="speaking-screen" class="screen">
+        <header class="top-nav">
+          <button class="icon-btn" onclick="goHome()">⬅️ Keluar</button>
+          <div class="progress-bar-container">
+            <div
+              id="speaking-progress"
+              class="progress-bar"
+              style="width: 0%"
+            ></div>
+          </div>
+          <div class="mini-stat">❤️ <span id="sp-hearts">5</span></div>
+        </header>
+
+        <section class="speaking-board">
+          <div class="mode-title center-title">
+            <span>🎙️</span>
+            <div>
+              <h2 class="quiz-title">Ucapkan Kalimat Ini</h2>
+              <p>Tekan mikrofon lalu ucapkan kalimat bahasa Inggris.</p>
+            </div>
+          </div>
+
+          <div class="speak-target">
+            <span class="speech-label">Say this:</span>
+            <h1 id="sp-phrase">Good Morning</h1>
+            <p id="sp-translate">Selamat pagi</p>
+          </div>
+
+          <div class="mic-container">
+            <button id="btn-mic" class="mic-btn" onclick="startSpeaking()">
+              🎙️
+            </button>
+            <p id="sp-status">Tekan mic untuk bicara</p>
+          </div>
+
+          <div id="sp-result" class="sp-result"></div>
+        </section>
+      </main>
+
+      <main id="dictionary-screen" class="screen">
+        <header class="top-nav">
+          <button class="icon-btn" onclick="goHome()">⬅️ Keluar</button>
+          <div class="mini-stat">📚 Kamus</div>
+        </header>
+
+        <section class="dictionary-board">
+          <div class="mode-title center-title">
+            <span>📚</span>
+            <div>
+              <h2>Kamus Bahasa Inggris</h2>
+              <p>
+                Kata bahasa Inggris di kiri, arti bahasa Indonesia di kanan.
+              </p>
+            </div>
+          </div>
+
+          <div class="translator-card">
+            <span class="card-label">Penerjemah Kata</span>
+            <input
+              type="text"
+              id="dictionary-input"
+              placeholder="Ketik kata Inggris, contoh: school"
+              autocomplete="off"
+            />
+            <button
+              class="action-btn success-btn"
+              onclick="translateDictionaryWord()"
+            >
+              Terjemahkan
+            </button>
+            <div id="dictionary-result" class="dictionary-result hidden"></div>
+          </div>
+
+          <div class="dictionary-search-box">
+            <input
+              type="text"
+              id="dictionary-search"
+              placeholder="Cari kata di kamus..."
+              oninput="renderDictionaryList()"
+            />
+          </div>
+
+          <div id="dictionary-list" class="dictionary-list"></div>
+        </section>
+      </main>
+
+      <!-- Tooltip arti kata -->
+      <div id="translation-tooltip" class="tooltip hidden">
+        <span id="tooltip-word" class="tt-word">Word</span>
+        <span id="tooltip-meaning" class="tt-meaning">Arti</span>
+        <div class="tooltip-arrow"></div>
+      </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="modal.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
